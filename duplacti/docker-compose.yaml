@@ -1,0 +1,18 @@
+---
+version: "2.1"
+services:
+  duplicati:
+    image: ghcr.io/linuxserver/duplicati
+    container_name: duplicati
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/NewYork
+      - CLI_ARGS= #optional
+    volumes:
+      - /home/Docker/duplacti/appdata/config:/config
+      - /media/hd2/backups:/backups
+        #      - </path/to/source>:/source
+    ports:
+      - 8200:8200
+    restart: unless-stopped

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  terraria:
+    image: beardedio/terraria:vanilla-latest
+    ports:
+      - '7777:7777'
+    restart: unless-stopped
+    environment:
+      - world=JellyBearEsq
+    volumes:
+      - /home/dsolsman/Docker/terraria/config:/config
+    tty: true
+    stdin_open: true
